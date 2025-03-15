@@ -1,9 +1,11 @@
 # SwiftChat Frontend
 
 ## Overview
+
 SwiftChat Frontend is the client-side application for the SwiftChat messaging platform. This project implements a modern, high-performance web interface for real-time messaging using Next.js and TypeScript.
 
 ## Main Stack
+
 - **Next.js**: React framework with App Router architecture
 - **TypeScript**: Strongly typed programming language
 - **tRPC**: End-to-end typesafe APIs
@@ -17,31 +19,34 @@ SwiftChat Frontend is the client-side application for the SwiftChat messaging pl
 
 ## Technology Breakdown
 
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| Framework | Next.js (App Router) | Server Components, API Routes, seamless backend integration |
-| State Management | Zustand/Jotai | Minimal API, reduced boilerplate code |
-| API Client | tRPC | Auto-generate client code from OpenAPI/Swagger, type-safe |
-| UI Library | Shadcn UI + Tailwind | Pre-built components, high customizability, reduced CSS code |
-| Real-time | Socket.IO | Simple WebSocket implementation for real-time communication |
-| Form Handling | React Hook Form + Zod | Automatic validation, minimalistic code |
-| Code Generation | OpenAPI Generator | Auto-generate client SDK from Spring Boot documentation |
+| Component        | Technology               | Purpose                                                      |
+| ---------------- | ------------------------ | ------------------------------------------------------------ |
+| Framework        | Next.js 19+ (App Router) | Server Components, API Routes, seamless backend integration  |
+| State Management | Zustand/Jotai            | Minimal API, reduced boilerplate code                        |
+| API Client       | tRPC                     | Auto-generate client code from OpenAPI/Swagger, type-safe    |
+| UI Library       | Shadcn UI + Tailwind     | Pre-built components, high customizability, reduced CSS code |
+| Real-time        | Socket.IO                | Simple WebSocket implementation for real-time communication  |
+| Form Handling    | React Hook Form + Zod    | Automatic validation, minimalistic code                      |
+| Code Generation  | OpenAPI Generator        | Auto-generate client SDK from Spring Boot documentation      |
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/yourusername/swiftchat-frontend.git
 cd swiftchat-frontend
 ```
 
 2. Install dependencies
+
 ```bash
 npm install
 # or
@@ -49,12 +54,15 @@ yarn install
 ```
 
 3. Set up environment variables
+
 ```bash
 cp .env.example .env.local
 ```
+
 Edit `.env.local` with appropriate values.
 
 4. Run the development server
+
 ```bash
 npm run dev
 # or
@@ -66,6 +74,7 @@ The application will be available at `http://localhost:3000`.
 ## Development Workflow
 
 ### Code Structure
+
 ```
 swiftchat-frontend/
 │── src/
@@ -87,6 +96,7 @@ swiftchat-frontend/
 ```
 
 ### API Integration
+
 The frontend connects to the SwiftChat backend services using tRPC. API clients are automatically generated from the OpenAPI specifications provided by the backend services.
 
 ## Integration with Backend
@@ -103,6 +113,7 @@ For detailed information on the backend architecture, refer to [architecture.md]
 ## Build and Deployment
 
 ### Development Build
+
 ```bash
 npm run build
 # or
@@ -110,6 +121,7 @@ yarn build
 ```
 
 ### Production Deployment
+
 The application is automatically deployed to Vercel when changes are pushed to the main branch.
 
 ## Available Scripts
