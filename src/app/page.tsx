@@ -276,20 +276,26 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
               <Image 
-            src="/logo.svg" 
-            alt="SwiftChat Logo" 
-            width={40} 
-            height={40} 
-            className="rounded-full"
-            />
+                src="/logo.svg" 
+                alt="SwiftChat Logo" 
+                width={40} 
+                height={40} 
+                className="rounded-full"
+              />
               <span className="ml-2 text-lg font-medium text-gray-800">SwiftChat</span>
             </div>
             
-            <div className="flex space-x-6 mb-6 md:mb-0">
-              <Link href="/features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
-              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About</Link>
-              <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</Link>
+            <div className="grid grid-cols-2 md:flex md:space-x-6 mb-6 md:mb-0 gap-y-2">
+              <div className="flex flex-col space-y-2 mr-8 md:mr-0 md:flex-row md:space-y-0 md:space-x-6">
+                <Link href="/features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
+                <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
+                <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About</Link>
+              </div>
+              <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-6">
+                <Link href="/policies" className="text-gray-600 hover:text-gray-900 transition-colors">Policies</Link>
+                <Link href="/policies/privacy" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</Link>
+                <Link href="/policies/terms" className="text-gray-600 hover:text-gray-900 transition-colors">Terms</Link>
+              </div>
             </div>
             
             <div className="flex space-x-4">
