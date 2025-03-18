@@ -62,30 +62,103 @@ export default function AboutPage() {
       {/* Project Purpose Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Purpose</h2>
+          <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Project Purpose</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="relative">
+          <div className="sticky top-24">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
+              <Image 
+            src="/images/architecture-diagram.png" 
+            alt="SwiftChat Architecture" 
+            fill
+            className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent flex items-end">
+            <div className="p-6">
+              <span className="px-3 py-1 bg-blue-500 text-white text-xs font-medium rounded-full mb-3 inline-block">Architecture</span>
+              <h3 className="text-xl font-semibold text-white">Enterprise-grade Microservices Design</h3>
+            </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">Spring Boot 3</span>
+              <span className="px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium">Kafka</span>
+              <span className="px-4 py-2 bg-amber-50 text-amber-700 rounded-full text-sm font-medium">Kubernetes</span>
+              <span className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-medium">Jenkins</span>
+              <span className="px-4 py-2 bg-rose-50 text-rose-700 rounded-full text-sm font-medium">DDD</span>
+            </div>
+          </div>
+            </div>
             
             <div className="prose prose-lg text-gray-600">
-              <p>
-                SwiftChat is a personal learning project designed to gain hands-on experience with Spring Boot 3 microservices architecture, CI/CD pipelines using Jenkins, and modern frontend development with Next.js.
-              </p>
-              
-              <p>
-                This project was developed as part of the University of Technology (Hutech) course to demonstrate the practical application of enterprise software development concepts and explore the challenges of building scalable, real-time communication platforms.
-              </p>
-              
-              <p>
-                The development process involved researching industry best practices, implementing secure authentication flows, designing scalable database schemas, and creating an intuitive user experience. It serves as a practical exploration of how modern web applications are architected and deployed in production environments.
-              </p>
-              
-              <p>
-                Key learning objectives included mastering microservices communication patterns, implementing proper error handling and logging, securing API endpoints, and optimizing frontend performance for responsive user interactions across devices.
-              </p>
-              
-              <p>
-                While SwiftChat presents itself as a messaging platform with a polished interface and comprehensive feature set, it is important to note that this is an educational project and not a commercial product.
-              </p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xl font-medium text-gray-900 mb-6">
+              SwiftChat is a personal project developed to deeply explore enterprise-level backend architectures and DevOps practices, with a focus on implementing a robust microservices ecosystem.
+            </p>
+            
+            <div className="space-y-6">
+              <div className="flex items-start">
+            <div className="mt-1 bg-blue-100 p-2 rounded-lg mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+              </svg>
             </div>
+            <p>
+              The core architecture features multiple Spring Boot microservices communicating through RESTful APIs and asynchronous messaging via Kafka. Each service is independently deployable and maintains its own database context, following domain-driven design principles.
+            </p>
+              </div>
+              
+              <div className="flex items-start">
+            <div className="mt-1 bg-green-100 p-2 rounded-lg mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <p>
+              A comprehensive CI/CD pipeline using Jenkins automates the entire delivery process from code commit to production deployment, including automated testing, Docker image building, and orchestrated deployment to Kubernetes clusters.
+            </p>
+              </div>
+              
+              <div className="flex items-start">
+            <div className="mt-1 bg-purple-100 p-2 rounded-lg mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <p>
+              The infrastructure leverages Spring Cloud components for service discovery, configuration management, and circuit breaking, providing resilience and fault tolerance in the distributed system.
+            </p>
+              </div>
+              
+              <div className="flex items-start">
+            <div className="mt-1 bg-amber-100 p-2 rounded-lg mr-4 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <p>
+              While the project features a modern Next.js frontend, the primary technical focus and learning objectives were centered on mastering backend technologies, infrastructure automation, and establishing reliable deployment pipelines for complex distributed systems.
+            </p>
+              </div>
+            </div>
+          </motion.div>
+            </div>
+          </div>
+        </motion.div>
           </div>
         </div>
       </section>
@@ -273,28 +346,59 @@ export default function AboutPage() {
       </section>
 
       {/* Creator Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">About the Creator</h2>
+          <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">About the Creator</h2>
+          
+          <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-xl overflow-hidden">
+            {/* Background decorative element */}
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-50 opacity-70"></div>
+            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 rounded-full bg-indigo-50 opacity-70"></div>
             
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 shadow-lg">
-                <Image 
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80" 
-                  alt="Creator" 
-                  width={128} 
-                  height={128}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">University Project</h3>
-                <p className="text-gray-600">
-                  This project was created as part of the 4HK2A CCPT course to demonstrate proficiency in full-stack development, microservices architecture, and DevOps practices. It represents a comprehensive exploration of modern web development technologies and practices.
-                </p>
-              </div>
+            <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="w-36 h-36 md:w-48 md:h-48 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg transform rotate-3 border-4 border-white">
+            <Image 
+              src="/images/profile.jpg" 
+              alt="Creator" 
+              width={192} 
+              height={192}
+              className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+          
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
+              <span>Software Engineer</span>
+              <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mx-3"></span>
+              <span>Full-Stack Developer</span>
+            </h3>
+            
+            <div className="space-y-4 text-gray-600">
+              <p>
+            This project was developed as a personal exploration of modern full-stack development technologies, reflecting my passion for scalable and maintainable software architecture.
+              </p>
+              <p>
+            Through SwiftChat, I&apos;ve gained extensive experience with microservices, real-time communication patterns, and automated deployment pipelines that have significantly enhanced my engineering capabilities and approach to complex systems design.
+              </p>
             </div>
+            
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">Spring Boot</span>
+              <span className="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">Next.js</span>
+              <span className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-medium">CI/CD</span>
+              <span className="px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium">Microservices</span>
+            </div>
+          </div>
+            </div>
+          </div>
+        </motion.div>
           </div>
         </div>
       </section>
@@ -303,21 +407,30 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Explore the Code</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              View the source code and technical documentation on GitHub
-            </p>
-            <a 
-              href="https://github.com/yourusername/swiftchat-frontend" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center gap-2"
-            >
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-              View on GitHub
-            </a>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold mb-6">Explore the Code</h2>
+          <p className="text-xl text-blue-100 mb-8">
+            View the source code and technical documentation on GitHub
+          </p>
+          <motion.a 
+            href={process.env.NEXT_PUBLIC_GITHUB_REPO || 'https://github.com'}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+            </svg>
+            View on GitHub
+          </motion.a>
+        </motion.div>
           </div>
         </div>
       </section>

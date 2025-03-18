@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { LoginForm } from "@/components/auth/login-form";
 import { OAuthButtons } from "@/components/auth/oauth-buttons";
-import { authApi } from "@/lib/api";
+import { authApi, tokenStorage } from "@/lib/api";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -16,22 +16,44 @@ export default function LoginPage() {
   // Check for successful verification or password reset
   const verified = searchParams.get("verified") === "true";
   const resetSuccess = searchParams.get("resetSuccess") === "true";
+  
+  // Check if user is already logged in
+  useEffect(() => {
+    const tokens = tokenStorage.getTokens();
+    if (tokens?.accessToken) {
+      console.log("User already logged in, redirecting to dashboard");
+      router.push("/dashboard");
+    }
+  }, [router]);
 
   const onSubmit = async (data: { email: string; password: string }) => {
     try {
       setIsLoading(true);
       setError(null);
       
+      console.log("Attempting login for:", data.email);
+      
+      // Call the login API
       const response = await authApi.login(data.email, data.password);
+      console.log("Login successful:", response);
       
-      // Store the token from the response data
-      localStorage.setItem('token', response.data.token);
+      // Verify token was saved
+      const savedTokens = tokenStorage.getTokens();
+      console.log("Saved tokens after login:", savedTokens);
       
-      // Redirect after successful login
-      router.push("/");
+      if (!savedTokens?.accessToken) {
+        throw new Error("Authentication failed - no token received");
+      }
+      
+      // Delay the redirect slightly to ensure token is fully saved
+      setTimeout(() => {
+        console.log("Redirecting to dashboard...");
+        router.push("/dashboard");
+      }, 100);
+      
     } catch (err) {
+      console.error("Login error:", err);
       setError(err instanceof Error ? err.message : "Invalid email or password");
-      console.error(err);
     } finally {
       setIsLoading(false);
     }
